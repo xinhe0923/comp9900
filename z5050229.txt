@@ -1,0 +1,4 @@
+Week 2;
+I joined the Team called TREE NEW BEE.The team numbers are Zeshi Wu,Yue Xu and Yangxi He.
+We want to choose topic three (Accommodation Web Portal),so I have read the background and basic objective carefully.
+We want to finish the four core components including accommodation advertising module,visitor request module,accommodation search module and accommodation review module.
