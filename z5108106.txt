@@ -1,3 +1,12 @@
 Week 2
 
 Group formed. I join the group, Tree New Bee, together with Zeshi Wu, Yuan Gao. 
+One more member, Xinhe Yang join our group. 
+Decide to do project 3, Accommodation Web portal. 
+Disscuss about the main part and architectures to implement our Accommodation Web portal.
+
+Week 3
+
+Disscuss and write proposal. 
+Assign job to each group member. I will be in charge of database part. 
+Learning usage of Mogodb and searching for useful dataset.
