@@ -1,9 +1,9 @@
 from flask import Flask
 from flask_mongoengine import MongoEngine
 
-db= MongoEngine()
+db = MongoEngine()
 
-def create_app(config = None):
+def create_app(config= None):
     app = Flask(__name__)
     if config is not None:
         app.config.from_object(config)
@@ -12,9 +12,12 @@ def create_app(config = None):
 
     @app.route("/")
     def hello():
-        return "hello world"
+        return "home"
 
     from user.views import user_page
-    app.register_blueprint(user_page,url_prefix="/user") #e.g. air/user/login
+    app.register_blueprint(user_page,url_prefix ="/user")
+
+    # from home.views import home_page
+    # app.register_blueprint(home_page, url_prefix="/home")
 
     return app
