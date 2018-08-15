@@ -11,6 +11,5 @@ MONGODB_PASSWORD = 'tnbadmin123'
 # mlab user: comp9900
 # mlab psw : comp9900psw
 
-
-# PROJECT_ID = 'comp9321assn3'
-# CLOUD_STORAGE_BUCKET= 'comp9321assn3-bucket'
+PROJECT_ID = 'comp9900tnb'
+CLOUD_STORAGE_BUCKET= 'comp9900tnb-bucket'
