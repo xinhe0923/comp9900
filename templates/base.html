@@ -34,10 +34,10 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class="nav-item {% if request.endpoint == 'user_page.login' %}active{% endif %}">
           <a class="nav-link" href="{{url_for('user_page.login')}}">Log In</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {% if request.endpoint == 'user_page.signup' %}active{% endif %}">
           <a class="nav-link" href="{{url_for('user_page.signup')}}">Sign Up</a>
         </li>
       </ul>

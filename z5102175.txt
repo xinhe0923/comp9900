@@ -9,3 +9,9 @@ Week 3:
 We have discussed proposal and assign the job of project.
 GAO and I will handle the service of User & Accommodation part.
 We all will take the GUI part into our job list.
+
+
+Wk 4:
+
+We have complete the basic user interface which has signup & login & edit function, What’s more, we ultimately link mlab with our project. User’s info will be shown on malb database.
+Furthermore, we are about to use WTForm to verify user info which will be complete by next week.

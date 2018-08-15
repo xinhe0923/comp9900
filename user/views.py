@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template,request
 from user.models import User
+from user.forms import RegistrationForm
 
 
 user_page = Blueprint('user_page',__name__)
@@ -14,8 +15,29 @@ def login():
     return render_template('user/login.html')
 
 
-@user_page.route('/signup')
+@user_page.route('/signup', methods=['GET','POST'])
 def signup():
-    return render_template('user/signup.html')
+    form = RegistrationForm(request.form)
+    if request.method == 'POST' and form.validate():
+        salt = bcrypt.gensalt()
+        hash_password = bcrypt.hashpw(form.password.data, salt)
+        user = User(
+            name=form.name.data,
+            email=form.email.data,
+            password=hash_password
+            # password= form.password.data # hahh, we can see the detailed psw, but it seems illegal :)
+
+        )
+        user.save()
+        flash("Registered successfully")
+
+        return '{} signup'.format(form.name.data)
+
+    return render_template('user/signup.html', form=form)
+
+
+
+
+
 
 

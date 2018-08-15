@@ -1,0 +1,22 @@
+{% macro render_field(field)   %}<!-- -->
+   <div class="form-group" >
+            {{ field.label }}
+            {{ field(**kwargs)|safe }} <!-- label name & numerous classes name-->
+            
+
+            {% if field.errors  %} <!-- extend filed or too short-->
+            <ul class="text-danger">     
+                {% for error in field.errors %}
+                    <li> {{error}} </li> <!-- show errors -->
+                
+                
+                {% endfor %}
+            
+            
+            </ul>
+            {% endif %}
+    </div>
+
+
+
+{% endmacro %}
