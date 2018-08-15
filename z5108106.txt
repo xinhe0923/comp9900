@@ -10,3 +10,6 @@ Week 3
 Disscuss and write proposal. 
 Assign job to each group member. I will be in charge of database part. 
 Learning usage of Mogodb and searching for useful dataset.
+
+Week 4
+We, ultimately, link mlab with our project. Users’ info will be shown in mlab database.
