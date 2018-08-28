@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block title %}{{home.name}}{% endblock %}
+
+
+{% block content %}
+
+<h3>
+  {{home.name}}
+  
+  
+</h3>
+<p class="text-muted">
+  Hosted by
+  <a href="{{url_for('user_page.edit',id=home.host)}}" >
+    {% if host.profile_image %}
+      <img width="50px" height="50px" src="{{host.profile_image}}"
+           class="img-thumbnail rounded-circle">
+    {% else %}
+      <img width="50px" height="50px" src="{{url_for('static',filename='img/user.JPG')}}"
+           class="img-thumbnail rounded-circle">
+    {% endif %}
+  
+    
+    {{host.name}}
+    <!--hoster-->
+  
+  </a>
+
+  
+  
+</p>
+
+
+<div class="row">
+
+  <div class="col-md-8">
+    {% if home.home_photo %}
+    <img width="100%" src="{{home.home_photo}}">
+    {% else %}
+    <img width="100%" src="{{url_for('static',filename='img/home1.JPG')}}">
+    {% endif %}
+    
+  </div>
+
+  <div class="col-md-4">
+    <h6>
+      Available Start time
+    </h6>
+    <p>
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      {{ home.start_time.strftime("%Y-%m-%d %I:%M%p") }}
+    </p>
+    
+    <h6>
+      End time
+    </h6>
+    <p>
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      {{ home.end_time.strftime("%Y-%m-%d %I:%M%p") }}
+    </p>
+    
+    
+    <h6>
+      Place
+    </h6>
+    <p>
+      <i class="fa fa-map-marker" aria-hidden="true"></i>
+      <a href="http://map.google.com?q={{home.place}}" target="_blank">
+      {{ home.place }}
+      </a>
+    </p>
+    
+    
+  {% if session.email==host.email %}
+ 
+  <a href="{{url_for('home_page.edit',id=home.id)}}" class="btn btn-success">
+        Edit
+        </a> 
+  {% endif %}
+
+    {% if home.cancel %}
+    This accommodation has been canceled.
+    {% elif user in home.attendees %}
+    {% endif %}
+    
+    
+  </div>
+  
+  
+</div>
+
+<hr>
+<h3>
+  Description
+</h3>
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      {{ home.description }}
+    </p>
+  </div>
+  
+</div>
+
+<hr>
+
+<h3>
+  Attendees History
+</h3>
+
+<div class="row">
+  {% for user in home.attendees %}
+  <div class="col-md-3 text-center">
+    <a href="{{url_for('user_page.edit',id=user.id)}}">
+    
+    {% if user.profile_image %}
+      <img width="100px" height="100px" src="{{user.profile_image}}"
+           class="img-thumbnail rounded-circle">
+    {% else %}
+      <img width="100px" height="100px" src="{{url_for('static',filename='img/user.png')}}"
+           class="img-thumbnail rounded-circle">
+    {% endif %}
+      <p>
+        {{ user.name }}
+      </p>
+    
+    </a>
+    
+    
+    
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+
+

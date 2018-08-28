@@ -1,0 +1,91 @@
+
+{% extends "base.html" %}
+
+{% block title %}Edit HOME{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  
+  <div class="col-md-6 offset-md-3">
+
+     <div class="text-center">
+
+    {% if home.home_photo %}
+    <img width="100%" src="{{home.home_photo}}">
+    {% else %}
+    <img width="100%" src="{{url_for('static',filename='img/home1.JPG')}}">
+    {% endif %}
+
+
+     </div>>
+
+  </div>
+
+    {% if error %}
+    <div class="alert alert-danger">
+      {{error}}
+    </div>
+    {% endif %}
+
+     {% if message %}
+    <div class="alert alert-success">
+      {{message}}
+    </div>
+    {% endif  %}
+
+
+    {% from "_formhelper.html" import render_field %}
+    <form method="POST" action="{{url_for('home_page.edit',id=home.id)}}" enctype="multipart/form-data">
+
+      {{ form.csrf_token }}
+      {{ render_field(form.name,class="form-control") }}
+      {{ render_field(form.gplace,class="form-control",id="autocomplete",placeholder="Enter your address")}}
+
+      {{ render_field(form.place,class="form-control",id="place",readonly=true) }}
+      {{ render_field(form.lng,class="form-control",id="lng",readonly=true) }}
+      {{ render_field(form.lat,class="form-control",ld="lat",readonly=true) }}
+      {{ render_field(form.start_datetime,class="form-control") }}
+      {{ render_field(form.end_datetime,class="form-control") }}
+      {{ render_field(form.photo,class="form-control") }}
+      {{ render_field(form.description,class="form-control",rows="4",minlength="20") }}
+
+
+      {% if home.cancel %}
+      This accommodation is Cancled
+      {% else %}
+
+      <button type="submit" class="btn btn-success">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        Save
+      </button>
+      <a href="{{url_for('home_page.cancel',id=home.id)}}" class="btn btn-danger">
+        Cancel ACCOMMODATION
+      </a>
+     {% endif %}
+
+
+
+
+    </form>
+
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block javascript %}
+{% include "googleapi.html" %}
+{% endblock %}
+
+
+

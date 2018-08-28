@@ -30,17 +30,22 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    <a class="navbar-brand" href="/">COMP9900TNB</a>
+    <a class="navbar-brand" href="{{url_for('home_page.explore')}}">COMP9900TNB</a>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item {% if request.endpoint == 'home_page.login' %}active{% endif %}">
+          <a class="nav-link" href="{{ url_for('home_page.create')}}">Publish a Accommodation</a>
+        </li>
+
         {% if session.email %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{session.email}}</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{url_for('user_page.edit')}}">   <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-              <a class="dropdown-item" href="{{url_for('user_page.edit')}}"><i class="fa fa-key" aria-hidden="true"></i>SAME</a>
-              <a class="dropdown-item" href="{{url_for('user_page.logout')}}"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>LOGOUT</a>
+              <a class="dropdown-item" href="{{url_for('user_page.edit')}}">   Edit</a>
+              <a class="dropdown-item" href="{{url_for('user_page.edit')}}">  Manage</a>
+              <a class="dropdown-item" href="{{url_for('user_page.logout')}}">LOGOUT</a>
               <div role="separator" class="dropdown-divider"></div>
             </div>
         </li>
@@ -71,6 +76,8 @@
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  {% block javascript %}{% endblock %}
 
 </body>
 

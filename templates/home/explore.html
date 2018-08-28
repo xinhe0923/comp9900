@@ -1,0 +1,278 @@
+{% extends "base.html" %} {% block title %}Explore {% endblock %} {% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">
+      Find a home
+    </h1>
+
+
+    <p class="lead text-muted">
+      TREE NEW BEE
+    </p>
+
+
+    <form method="GET" action="{{url_for('home_page.explore')}}">
+
+      <div class="input-group">
+       <input type="text" class="form-control" placeholder="Search for place..."
+                       id="autocomplete">
+      <input type="hidden" name="place" id="place">
+      <input type="hidden" name='lng' id="lng">
+      <input type="hidden" name="lat" id="lat">
+
+        
+        <span class="input-group-btn">
+        <button class="btn btn-success" type="submit">
+          Go!
+          </button>
+        
+        
+        </span>
+
+      </div>
+
+
+
+
+
+    </form>
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+</div>
+
+{% if homes and homes.pages>0 %}
+<p class="text-muted text-center">
+  home near {{ place }}
+</p>
+
+<div class="row">
+  {% for home in homes.items %}
+  <div class="col-md-6 home-item">
+
+    <div class="card">
+
+
+
+      {% if home.home_photo %}
+      <img class="card-img-top home-photo-item" src="{{home.home_photo }}">
+      {% else %}
+      <img class="card-img-top home-photo-item" src="{{url_for('static',filename='img/home1.jpg')}}">
+      {% endif %}
+
+      <div class="card-block">
+        <h4 class="card-title">
+          <a href="{{url_for('home_page.public',id=home.id)}}" target="_blank"> {{ home.name }} </a>
+        </h4>
+        <p class="card-text">
+          {{home.description[:100] }}...
+        </p>
+        <p class="card-text">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <a href="http://map.google.com?q={{home.place}}" target="_blank">
+          {{ home.place }}
+          </a>
+          <br>
+          <i class="fa fa-clock-o" aria-hidden="true"></i> {{ home.start_time.strftime("%Y-%m-%d %I:%M%p") }}
+          <br>
+          <i class="fa fa-users" aria-hidden="true"></i>{{ home.attendees|length }} attending
+
+
+        </p>
+      
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+  </div>
+  {% endfor %}
+
+
+
+
+
+</div>
+
+<div class="row justify-content-center">
+  <ul class="pagination">
+    {% if homes.has_prev %}
+    <li class="page-item">
+    <a class="page-link" href="{{url_for('home_page.explore',page=homes.prev_num,place=place,lng=lng,lat=lat)}}">
+      <span>&laquo;</span>
+      
+      
+      
+      </a>
+    
+    </li>
+    {% endif %}
+    <li class="page-item">
+    <p class="page-link">
+      Page {{homes.page}} of {{homes.pages}}
+      </p>
+    
+    
+    </li>
+    
+    
+    {% if homes.has_next %}
+    <li class="page-item">
+    <a class="page-link" href="{{url_for('home_page.explore',page=homes.next_num,place=place,lng=lng,lat=lat)}}">
+      <span>  &raquo; </span>
+      
+      </a>
+    
+    </li>
+    {% endif %}
+    
+    
+    
+  </ul>
+</div>
+
+{% elif place %}
+<p class="text-muted text-center">
+  Near {{place}} We could not find any homes here :(
+</p>
+
+{% else %}
+<p class="text-muted text-center">
+  All property in TNB platform
+</p>
+
+<div class="row">
+  {% for display in display_home.items %}
+  <div class="col-md-6 home-item">
+
+    <div class="card">
+
+
+
+      {% if display.home_photo %}
+      <img class="card-img-top home-photo-item" src="{{display.home_photo }}">
+      {% else %}
+      <img class="card-img-top home-photo-item" src="{{url_for('static',filename='img/home1.jpg')}}">
+      {% endif %}
+
+      <div class="card-block">
+        <h4 class="card-title">
+          <a href="{{url_for('home_page.public',id=display.id)}}" target="_blank"> {{ display.name }} </a>
+        </h4>
+        <p class="card-text">
+          {{display.description[:100] }}...
+        </p>
+        <p class="card-text">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <a href="http://map.google.com?q={{display.place}}" target="_blank">
+          {{ display.place }}
+          </a>
+          <br>
+          <i class="fa fa-clock-o" aria-hidden="true"></i> {{ display.start_time.strftime("%Y-%m-%d %I:%M%p") }}
+          <br>
+          <i class="fa fa-users" aria-hidden="true"></i>{{ display.attendees|length }} attending
+
+
+        </p>
+      
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+  </div>
+  {% endfor %}
+
+
+
+
+
+</div>
+
+<div class="row justify-content-center">
+  <ul class="pagination">
+    {% if display_home.has_prev %}
+    <li class="page-item">
+    <a class="page-link" href="{{url_for('home_page.explore',page=display_home.prev_num,place=place,lng=lng,lat=lat)}}">
+      <span>&laquo;</span>
+      
+      
+      
+      </a>
+    
+    </li>
+    {% endif %}
+    <li class="page-item">
+    <p class="page-link">
+      Page {{display_home.page}} of {{display_home.pages}}
+      </p>
+    
+    
+    </li>
+    
+    
+    {% if display_home.has_next %}
+    <li class="page-item">
+    <a class="page-link" href="{{url_for('home_page.explore',page=display_home.next_num,place=place,lng=lng,lat=lat)}}">
+      <span>  &raquo; </span>
+      
+      </a>
+    
+    </li>
+    {% endif %}
+    
+    
+    
+  </ul>
+</div>
+
+
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block javascript %}
+{% include "googleapi.html" %}
+{% endblock %}
