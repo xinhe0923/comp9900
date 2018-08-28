@@ -63,3 +63,6 @@ six==1.11.0
 urllib3==1.23
 Werkzeug==0.14.1
 WTForms==2.2.1
+
+aniso8601==3.0.2
+flask-restful==0.3.6

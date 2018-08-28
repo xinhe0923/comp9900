@@ -2,3 +2,26 @@ Week 2;
 I joined the Team called TREE NEW BEE.The team numbers are Zeshi Wu,Yue Xu and Yangxi He.
 We want to choose topic three (Accommodation Web Portal),so I have read the background and basic objective carefully.
 We want to finish the four core components including accommodation advertising module,visitor request module,accommodation search module and accommodation review module.
+
+Week 3;
+I focus on writing the Proposal of the project and have a deep understanding of the project.
+According to learn the demo of many example about accommodation application,we want to Four core components:
+1:Accommodation advertising module;in order to advertise properties and maintain advertisements for provides of
+accommodation.
+We want to finish this module firstly.
+2:Visitor request module;for users
+3:Accomodation search module;
+These two modules are to help users to finds properties and filters out inappropriate ones.
+4: Accommodation review module
+
+Week 4:
+We decided on the each teammate's role in this project;I focus on the function about the API and routes;
+Zeshi Wu took responsibility for the Fronted end;I took responsibility for the Backed end.
+
+Week 5:
+We have tested the page about the login and logout function;Users can register their account number of this
+application.We talk about that users can use only one page to advertise their information and search other
+property information.
+
+Week 6;
+We have finish the basic function in order to demo1;
