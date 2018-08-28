@@ -27,9 +27,4 @@ class Home(db.Document):
   # description = db.StringField(min_length=20, required=True)
   # #host = db.ObjectIdField(required=True)
   # #cancel = db.BooleanField(default=False)
-<<<<<<< HEAD
-  # #attendees = db.ListField(db.ReferenceField(User))
 
-=======
-  # #attendees = db.ListField(db.ReferenceField(User))
->>>>>>> 39cd828dcebfc892011ed8b2deef98b4e9c8078c

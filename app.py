@@ -19,3 +19,5 @@ def create_app(config= None):
 
     from home.views import home_page
     app.register_blueprint(home_page, url_prefix="/home")
+
+    return app
