@@ -20,4 +20,8 @@ Build model for user and home. Then constract user and accommodation page.
 Week 6
 Construct the search page so the user could post their home to be rent, or search accommodation by location.
 
+Week 7
+Discuss on Accommodation Occupy model and do some research about it.
 
+Week 8
+Doing things about rank search.
