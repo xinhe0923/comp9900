@@ -25,3 +25,10 @@ Discuss on Accommodation Occupy model and do some research about it.
 
 Week 8
 Doing things about rank search.
+
+Week 9
+Working on booking accomadation.
+
+Week 10
+Debug for previous work.
+
