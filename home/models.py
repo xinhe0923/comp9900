@@ -12,9 +12,17 @@ class Home(db.Document):
   description = db.StringField(min_length=20,required=True)
   host = db.ObjectIdField(required=True) #link to USER DB
   cancel = db.BooleanField(default=False)
+  attendees = db.ListField(db.ReferenceField(User))
 
-  #need one attribute ，"occupier" at specific time
-
+class rent_Home(db.Document):
+  place = db.StringField(required=True)
+  location = db.PointField(required=True)
+  start_time = db.DateTimeField(required=True)
+  end_time = db.DateTimeField(required=True)
+  home_photo = db.StringField()
+  description = db.StringField(min_length=20,required=True)
+  host = db.ObjectIdField(required=True) #link to USER DB
+  cancel = db.BooleanField(default=False)
   attendees = db.ListField(db.ReferenceField(User))
 
   # xuyue modify
@@ -27,4 +35,4 @@ class Home(db.Document):
   # description = db.StringField(min_length=20, required=True)
   # #host = db.ObjectIdField(required=True)
   # #cancel = db.BooleanField(default=False)
-
+  # #attendees = db.ListField(db.ReferenceField(User))

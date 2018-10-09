@@ -1,9 +1,8 @@
-
 from flask import Blueprint,render_template,request,session,redirect,url_for,abort,flash
 from home.forms import BasicHomeForm, EditForm,CancelHomeForm
 from user.decorator import login_required
 
-from home.models import Home
+from  home.models import Home,rent_Home
 from user.models import User
 from utilities.storage import upload_image_file
 import json
@@ -40,6 +39,36 @@ def create():
       return '{} created'.format(home.name)
 
   return render_template('home/create.html', form = form)
+  # return redirect(url_for('/home'))
+
+@home_page.route('/rent_create',methods=['GET','POST'])
+@login_required
+def rent_create():
+  form = BasicHomeForm()
+  error = None
+  if request.method == "POST" and form.validate():
+    if form.end_datetime.data < form.start_datetime.data:
+      error = "Available time must end after it starts!"
+    if not error:
+      user = User.objects.filter(email=session.get('email')).first()
+      home = rent_Home(
+        place=form.place.data,
+        location=[form.lng.data, form.lat.data],
+        start_time=form.start_datetime.data,
+        end_time=form.end_datetime.data,
+        description=form.description.data,
+        host=user.id,
+        attendees=[user]
+      )
+      # image_url = upload_image_file(request.files.get('photo'), 'party_photo', str(party.id))
+      # if image_url:
+      #   party.party_photo = image_url
+
+      home.save() #save to mdb
+      return '{} created'.format(home.name)
+
+  return render_template('home/rent_create.html', form = form)
+  # return redirect(url_for('/home'))
 
 
 @home_page.route('/<id>/edit', methods=['GET', 'POST'])
@@ -113,8 +142,7 @@ def explore(page=1):
   place = request.args.get('place') #encoding error
   # lng = float(request.args.get('lng')) # can not be empty
   # lat = float(request.args.get('lat'))
-
-  # in the beginning when we open home/explore, it shows all homes which is display_home
+  # in case there is not property nearby, thus shows all homes which is display_home
   display_home = Home.objects(cancel=False).order_by('-start_time').paginate(page=page, per_page=4)
 
   #homes = Home.objects(cancel=False).order_by('-start_time').paginate(page=page, per_page=4)
@@ -123,10 +151,9 @@ def explore(page=1):
     lng = float(request.args.get('lng'))
     lat = float(request.args.get('lat'))
     print(lng,lat)
-    homes = Home.objects(location__near=[lng, lat], location__max_distance=10000,
+    homes = Home.objects(location__near=[lng, lat], location__max_distance=1000,
                             cancel=False).order_by('-start_time').paginate(page=page, per_page=4)
 
-    if homes : print("yes")
     print(homes)
 
     return render_template("home/explore.html", homes=homes, display_home=display_home, place= place,lng=lng,

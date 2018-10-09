@@ -13,7 +13,6 @@ class BasicHomeForm(FlaskForm):
     # avaiblable period
     start_datetime = DateTimeField('Avaiblable From', validators=[validators.DataRequired()], format='%Y-%m-%d')
     end_datetime = DateTimeField('Avaiblable By', validators=[validators.DataRequired()], format='%Y-%m-%d')
-
     description = StringField('Discription', widget=TextArea(), validators=[validators.Length(min=20)])
 
 
