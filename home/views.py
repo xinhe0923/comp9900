@@ -93,7 +93,7 @@ def edit(id):
         if image_url:
           home.party_photo = image_url
           home.save()
-        message = "HOMe updated"
+        message = "HOME updated"
     return render_template('home/edit.html', form=form, error=error, message=message, home=home)
   else:
     abort(404)
