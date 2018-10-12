@@ -12,7 +12,7 @@ Assign job to each group member. I will be in charge of database part.
 Learning usage of Mogodb and searching for useful dataset.
 
 Week 4
-We, ultimately, link mlab with our project. Users’ info will be shown in mlab database.
+We, ultimately, link mlab with our project. Users' info will be shown in mlab database.
 
 Week 5
 Build model for user and home. Then constract user and accommodation page. 
