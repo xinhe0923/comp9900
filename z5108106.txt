@@ -32,3 +32,8 @@ Working on booking accomadation.
 Week 10
 Debug for previous work.
 
+Week 11
+Add data model for user who want to rent house so that user could put query to ask for accomadation to rent. 
+This part is similar to previous work about home to rent. 
+
+
