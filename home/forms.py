@@ -13,12 +13,9 @@ class BasicHomeForm(FlaskForm):
     capacity = StringField('People', validators=[validators.DataRequired()])
     price = StringField('Price $', validators=[validators.DataRequired()])
     contact = StringField('Contact', validators=[validators.DataRequired()])
-
-
     # avaiblable period
     start_datetime = DateTimeField('Avaiblable From', validators=[validators.DataRequired()], format='%Y-%m-%d')
     end_datetime = DateTimeField('Avaiblable By', validators=[validators.DataRequired()], format='%Y-%m-%d')
-
     description = StringField('Discription', widget=TextArea(), validators=[validators.Length(min=20)])
 
 

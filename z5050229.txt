@@ -31,12 +31,48 @@ I will finish the Review and comment model in next week.
 
 Week 7;
 
+I create the comment model including the forms.py, models.py and views.py.
+In models.py, I finish the class Comment.
+content = db.StringField(requried=True)
+author = db.ReferenceField(User, required=True)
+created = db.DateTimeField(default=datetime.datetime.now)
+The reason is that we need the comment ,author ,datetime information.
+
 Week 8;
+This is the demo2.
+we have finished the Demo2;
+I am mainly responsible for the Review module, which means that users can
+publishes a review about properties.
+I create the documentary called comment and finish this function.
+user who do not login the portal website cannot commit the reviews.
 
 Week 9;
 
+I continue to write the review modules.
+After users committed the comments,they can delete their own comment.
+However, they cannot delete other user' comments.
+
 Week 10;
+
+This is the demo3;
+Our team should add the module about renant.
+The funtion is that renants can publish the requests about properties and the properties' owner
+can search the relating requests.
 
 Week 11;
 
+We have basically finished the functions of this project.
+Accommodation advertising module – for providers of accommodations to advertise
+properties and maintain their advertisements
+2. Visitor request module – for users to:
+a. put their requests and get a simple and useful feedback of the available
+accommodations
+b. select and book preferred accommodation
+3. Accommodation search module - finds properties and filters out inappropriate ones
+4. Accommodation review module – publishes a review about properties (optional)
+
+
 Week 12;
+
+this is the last demo,and prepare the presentation about my own part --- API and Review Module
+
