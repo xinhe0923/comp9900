@@ -16,7 +16,10 @@
             </ul>
             {% endif %}
     </div>
+{% endmacro %}
 
-
-
+{% macro render_horizontal(field)   %}<!-- -->
+   <div class="form-group" >
+       {{ field(**kwargs)|safe }}
+   </div>
 {% endmacro %}

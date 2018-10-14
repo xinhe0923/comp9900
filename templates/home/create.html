@@ -28,8 +28,12 @@
       {{ render_field(form.lat,class="form-control",ld="lat",readonly=true) }}
       {{ render_field(form.start_datetime,class="form-control",placeholder="e.g. YYYY-MM-DD") }}
       {{ render_field(form.end_datetime,class="form-control",placeholder="e.g. YYYY-MM-DD") }}
+      {{ render_field(form.price,class="form-control",placeholder="e.g. 100") }}
+      {{ render_field(form.capacity,class="form-control",placeholder="e.g. 5") }}
+      {{ render_field(form.contact,class="form-control",placeholder="e.g. 0404-444-444") }}
 
       {{ render_field(form.description,class="form-control",rows="4",minlength="20") }}
+
       
       <button type="submit" class="btn btn-success">
         Create Accommodation

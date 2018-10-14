@@ -81,6 +81,9 @@
     {% if home.cancel %}
     This accommodation has been canceled.
     {% elif user in home.attendees %}
+    <a href="{{url_for('home_page.leave',id=home.id)}}" class="btn btn-danger"> <i class="fa fa-sign-out" aria-hidden="true"></i>Leave</a>
+    {% else %}
+    <a href="{{url_for('home_page.join',id=home.id)}}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i>Join</a>
     {% endif %}
     
     
@@ -117,7 +120,7 @@
       <img width="100px" height="100px" src="{{user.profile_image}}"
            class="img-thumbnail rounded-circle">
     {% else %}
-      <img width="100px" height="100px" src="{{url_for('static',filename='img/user.png')}}"
+      <img width="100px" height="100px" src="{{url_for('static',filename='img/user.JPG')}}"
            class="img-thumbnail rounded-circle">
     {% endif %}
       <p>
@@ -131,6 +134,40 @@
   </div>
   {% endfor %}
 </div>
+
+<div class="row">
+  {% for user in home.attendees %}
+  <div class="col-md-3 text-center">
+    <a href="{{url_for('user_page.edit',id=user.id)}}">
+
+    {% if user.profile_image %}
+      <img width="100px" height="100px" src="{{user.profile_image}}"
+           class="img-thumbnail rounded-circle">
+    {% else %}
+      <img width="100px" height="100px" src="{{url_for('static',filename='img/user.JPG')}}"
+           class="img-thumbnail rounded-circle">
+    {% endif %}
+      <p>
+        {{ user.name }}
+      </p>
+
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+<h3>
+  Comments
+</h3>
+<div class="row">
+  <div id="comments-block"></div>
+</div>
+<hr/>
+<div class="row">
+  <div id="new-comment-block"></div>
+</div>
+
+{% include "comments.js.html" %}
 
 {% endblock %}
 

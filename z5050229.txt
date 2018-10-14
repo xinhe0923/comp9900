@@ -25,3 +25,18 @@ property information.
 
 Week 6;
 We have finish the basic function in order to demo1;
+Visitor request module – for users they can put their requests and get a simple and useful feedback of the available
+accommodations.Secondly, they also can select and book preferred accommodation.
+I will finish the Review and comment model in next week.
+
+Week 7;
+
+Week 8;
+
+Week 9;
+
+Week 10;
+
+Week 11;
+
+Week 12;
