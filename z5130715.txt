@@ -1,0 +1,59 @@
+Week 2;
+I joined the Team called TREE NEW BEE.The team numbers are Zeshi Wu,Yue Xu and Yuan Gao.
+We want to choose topic three (Accommodation Web Portal),so I have read the background and basic objective carefully.
+We want to finish the four core components including accommodation advertising module, visitor request module,vaccommodation search module and accommodation review module.
+
+Week 3;
+I focus on writing the Proposal of the project and have a deeper understanding of the project.
+I read a lot of articles about online accomodation web portal,we want to Four core components:
+1:Accommodation advertising module; In this module, providers of accommodations can advertise properties and maintain their advertisements.
+The users also can find suitable properties and reserve them, and publish a review about properties.
+2:Visitor request module; Visiors can put their requests and get a useful feedback of the available accommodations.
+They also can select preferred accommodation.
+
+3:Accommodation search module;
+These two modules are to help users to finds properties and filters out inappropriate ones.
+4: Accommodation review module
+
+Besides these four core components, we decided to add the User module, which can include the function to  sign up 
+your new account and log in previous account.It Is really useful in practical application.
+
+
+Week 4:
+We decided on the each teammate's role in this project; I focus on the GUI part.
+
+
+Week 5:
+We have tested the User module including the page about the login and logout functions;
+
+
+
+Week 6;
+We have finished the basic function in order to demo1;
+Visitor request module – for users they can put their requests and get a simple and useful feedback of the available
+accommodations.Secondly, they also can select and book preferred accommodation.
+I will finish the accomodation gui in next weeks.
+
+Week 7;
+
+i finished the base.html, signup.html, working on the edit html. publish page
+
+Week 8;
+work on the base.html
+
+Week 9;
+
+work on the accomodation publish page, accommodation edit page
+
+
+Week 10;
+
+debug for previous work
+
+Week 11;
+
+use bootstrap to make page look better
+
+Week 12;
+this is the last demo,and prepare the presentation about demo.
+
